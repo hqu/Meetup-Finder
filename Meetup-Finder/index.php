@@ -25,8 +25,6 @@ echo "<div style='font-size:12px;font-color:#0C0C0C;border:#333 solid 1px;paddin
 ?>
 <p>    
 <?php
-
-
 $trends_url = "https://api.meetup.com/2/open_events?key=746e1755695941746929451221477863&time=1d," . $num_days . "d&zip=" . $zipcode . "&sign=true&topic=" . $temp_query;
 // initialise the session
 $ch = curl_init();
@@ -41,15 +39,10 @@ $curlout_no_html = strip_tags($curlout);
 
 curl_close($ch);
 
-
-
-
-
 $myJSONFile = "JS_data.js";
 $fh_json = fopen($myJSONFile, 'r');
 $theJSONData = fread($fh_json, filesize($myJSONFile));
 fclose($fh_json);
-
 
 $data = json_decode($curlout);
 //print_r($data);
@@ -77,4 +70,3 @@ $data = json_decode($curlout);
 ?>
 </body>
 </html>
-
